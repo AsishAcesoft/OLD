@@ -1,0 +1,6 @@
+@DotNETcoreApiLuminarTask1_HostAddress = http://localhost:5171
+
+GET {{DotNETcoreApiLuminarTask1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

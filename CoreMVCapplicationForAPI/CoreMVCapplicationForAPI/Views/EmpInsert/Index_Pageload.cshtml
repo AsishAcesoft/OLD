@@ -1,0 +1,22 @@
+﻿@model CoreMVCapplicationForAPI.Models.Employee
+
+<form asp-action="Index_click" class="form-horizontal" method="post">
+    <div class="form-group">
+        <label class="control-label">Employee Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Employee Address</label>
+        <input type="text" asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Employee Salary</label>
+        <input type="text" asp-for="Salary" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Insert" class="btn btn-primary" />
+    </div>
+</form>

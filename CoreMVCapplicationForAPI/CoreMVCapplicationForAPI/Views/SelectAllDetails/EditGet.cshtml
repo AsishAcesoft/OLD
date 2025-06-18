@@ -1,0 +1,30 @@
+﻿@model CoreMVCapplicationForAPI.Models.Employee
+
+@using (Html.BeginForm("EditPost", "SelectAllDetails", new { id = Model.Id }, FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        <label class="control-label">Employee Name</label>
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Employee Address</label>
+        @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Employee Salary</label>
+        @Html.TextBoxFor(model => model.Salary, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-success" />
+    </div>
+}
+
+
+<p>
+    @Html.ActionLink("Back to List", "AllProfile_page", "SelectAllDetails")
+</p>

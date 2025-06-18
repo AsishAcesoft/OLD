@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CoreMVCapplicationForAPI.Models.Employee>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Employee List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>List All Employee Details</h1>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Address</td>
+                        <td>@emp.Salary</td>
+                        <td>
+                            @* @using (Html.BeginForm("Detailstab", "DisplayAll", new { id = emp.Id }, FormMethod.Post)) *@
+                            @using (Html.BeginForm("Detailstab", "SelectAllDetails", new { id = emp.Id }, FormMethod.Post))
+                            {
+                                <button type="submit" class="btn btn-success btn-sm">Details</button>
+                            }
+                        </td>
+                        <td>
+                            
+                            @using (Html.BeginForm("DeleteDB", "SelectAllDetails", new { id = emp.Id }, FormMethod.Post))
+                            {
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            }
+                        </td>
+
+                        <td>
+
+                            @using (Html.BeginForm("EditGet", "SelectAllDetails", new { id = emp.Id }, FormMethod.Post))
+                            {
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            }
+                        </td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
